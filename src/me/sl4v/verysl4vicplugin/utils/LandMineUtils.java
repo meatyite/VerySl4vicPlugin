@@ -8,8 +8,8 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class LandMineUtils
 {
-    public Block blockUnderneathPlayer;
-    public PlayerMoveEvent playerEvent;
+    private Block blockUnderneathPlayer;
+    private PlayerMoveEvent playerEvent;
     public Player player;
 
     public LandMineUtils(PlayerMoveEvent playerEvent)
@@ -25,7 +25,7 @@ public class LandMineUtils
         return from.getBlockX() == to.getBlockX() && from.getBlockY() == to.getBlockY() && from.getBlockZ() == from.getBlockZ();
     }
 
-    public Block getBlockUnderneathPlayer()
+    private Block getBlockUnderneathPlayer()
     {
         return this.player.getWorld().getBlockAt(this.playerEvent.getFrom()).getRelative(0, -2, 0);
     }
@@ -33,13 +33,8 @@ public class LandMineUtils
     public boolean isPlayerWalkingOnLandMine()
     {
         this.blockUnderneathPlayer = this.getBlockUnderneathPlayer();
-        if (this.blockUnderneathPlayer.getType().equals(Material.TNT))
-        {
-            return true;
-        } else
-        {
-            return false;
-        }
+        return this.blockUnderneathPlayer.getType().equals(Material.TNT);
+
     }
 
     public void ExplodePlayer()

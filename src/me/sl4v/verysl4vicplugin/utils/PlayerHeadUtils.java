@@ -12,7 +12,7 @@ public class PlayerHeadUtils
 {
     private static String generatePlayerSkullDisplayName(String playerName) {
         // Gives the player name in "Head of <player name>" a color
-        return "Head of " + NameColorUtils.name_colors.get(playerName) + playerName;
+        return "Head of " + NameColorUtils.getPlayerNameWithColor(playerName, false);
     }
 
     public static ItemStack getPlayerHead(Player player)

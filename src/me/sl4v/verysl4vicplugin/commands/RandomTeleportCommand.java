@@ -21,7 +21,6 @@ public class RandomTeleportCommand implements CommandExecutor
                 Player player = (Player) sender;
                 //Safe Location that has been generated
                 Location randomLocation = TeleportUtils.findSafeLocation(player);
-                randomLocation.setY(randomLocation.getWorld().getHighestBlockYAt(randomLocation));
                 //Teleport player
                 player.teleport(randomLocation);
                 player.sendMessage(ChatColor.RED + "Teleported to Random Location.");

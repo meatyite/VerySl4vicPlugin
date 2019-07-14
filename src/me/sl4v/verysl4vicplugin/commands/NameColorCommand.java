@@ -27,7 +27,11 @@ public class NameColorCommand implements CommandExecutor
                     player.setPlayerListName(new_color + player.getDisplayName());
                 }   catch (Exception e)
                 {
-                    GeneralUtils.showErrorToPlayer(player,  "Must specify a valid color\n" + ChatColor.WHITE + "See /namecolorlist for a list of valid colors."
+                    GeneralUtils.showErrorToPlayer(
+                            player,
+                            "Must specify a valid color\n"
+                                    + ChatColor.WHITE
+                                    + "See /namecolorlist for a list of valid colors."
                     );
                     return false;
                 }

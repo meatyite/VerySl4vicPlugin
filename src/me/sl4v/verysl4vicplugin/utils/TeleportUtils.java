@@ -12,7 +12,7 @@ import java.util.Random;
 public class TeleportUtils
 {
     //List of all the unsafe blocks
-    public static HashSet<Material> bad_blocks = new HashSet<>();
+    private static HashSet<Material> bad_blocks = new HashSet<>();
 
     static
     {
@@ -24,7 +24,7 @@ public class TeleportUtils
         bad_blocks.add(Material.BEDROCK);
     }
 
-    public static Location generateLocation(Player player)
+    private static Location generateLocation(Player player)
     {
         //Generate Random Location
         Random random = new Random();
@@ -51,7 +51,7 @@ public class TeleportUtils
 
     }
 
-    public static boolean isLocationSafe(Location location)
+    private static boolean isLocationSafe(Location location)
     {
         int x = location.getBlockX();
         int y = location.getBlockY();
