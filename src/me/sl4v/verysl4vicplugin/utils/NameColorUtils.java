@@ -2,7 +2,6 @@ package me.sl4v.verysl4vicplugin.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,17 +29,27 @@ public class NameColorUtils
 
     public static void setMessageFormat(AsyncPlayerChatEvent chatEvent)
     {
-        chatEvent.setFormat(
-                        "["
-                        + NameColorUtils.getPlayerNameWithColor(chatEvent.getPlayer().getDisplayName(), true)
-                        + "] "
-                        + chatEvent.getMessage()
-        );
+        String chatFormat =
+                "["
+                + NameColorUtils.getPlayerNameWithColor(chatEvent.getPlayer().getDisplayName(), true)
+                + ChatColor.WHITE
+                + "] "
+                + chatEvent.getMessage();
+
+        chatEvent.setFormat(chatFormat);
     }
 
     private static ChatColor getPlayerNameColor(String playerName)
     {
-        return NameColorUtils.name_colors.get(playerName);
+        ChatColor nameColor = NameColorUtils.name_colors.get(playerName);
+        if (nameColor != null)
+        {
+            return nameColor;
+        }
+        else
+        {
+            return ChatColor.WHITE;
+        }
     }
 
     static String getPlayerNameWithColor(String playerName, boolean bold)
@@ -50,11 +59,8 @@ public class NameColorUtils
         // won't error because it's not a string but a ChatColor object
         if (bold)
         {
-            newPlayerName = newPlayerName + ChatColor.BOLD + ChatColor.WHITE;
-        } else
-        {
-            newPlayerName = newPlayerName + ChatColor.WHITE;
+            newPlayerName = newPlayerName + ChatColor.BOLD;
         }
-        return newPlayerName;
+        return newPlayerName + playerName;
     }
 }
