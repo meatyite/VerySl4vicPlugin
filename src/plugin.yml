@@ -1,0 +1,28 @@
+name: VerySl4vicPlugin
+version: 1.1
+author: sl4v
+description: Various plugins made by sl4v put together
+website: sl4vkek.github.io
+api-version: 1.14
+main: me.sl4v.verysl4vicplugin.VerySl4vicPlugin
+commands:
+  randtp:
+    description: Teleport to a random location
+    usage: /<command>
+    aliases: [randomtp, RandomTP, RandTP, randomteleport]
+  namecolor:
+    description: Change your name's color
+    usage: /<command> [COLOR NAME] Example:\ /namecolor BLUE
+    aliases: [colorname, ColorName]
+  namecolorList:
+    description: List usuable name colors for /namecolor.
+    usage: /<command>
+    aliases: [colornameList, ColorNameList]
+  playerhead:
+    description: Give yourself your own playerhead
+    usage: /<command>
+  treespawn:
+    description: Spawn a tree
+    usage: /<command> [TREE TYPE]
+  treetypes:
+    description: List tree types for /treespawn
