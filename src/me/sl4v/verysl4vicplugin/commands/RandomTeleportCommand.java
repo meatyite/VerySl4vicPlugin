@@ -1,6 +1,8 @@
 package me.sl4v.verysl4vicplugin.commands;
 
+import me.sl4v.verysl4vicplugin.utils.NameColorUtils;
 import me.sl4v.verysl4vicplugin.utils.TeleportUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -35,6 +37,12 @@ public class RandomTeleportCommand implements CommandExecutor
                         + randomLocation.getZ();
 
                 player.sendMessage(new_coordinates_message);
+                Bukkit.broadcastMessage(
+                        ChatColor.YELLOW
+                                + "Teleported "
+                                + NameColorUtils.getPlayerNameWithColor(player.getDisplayName(), false)
+                                + ChatColor.YELLOW +
+                                " To a random location.");
             }
         }
 

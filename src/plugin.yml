@@ -26,3 +26,4 @@ commands:
     usage: /<command> [TREE TYPE]
   treetypes:
     description: List tree types for /treespawn
+    usage: /<command>

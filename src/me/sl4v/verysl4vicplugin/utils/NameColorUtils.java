@@ -52,7 +52,7 @@ public class NameColorUtils
         }
     }
 
-    static String getPlayerNameWithColor(String playerName, boolean bold)
+    public static String getPlayerNameWithColor(String playerName, boolean bold)
     {
         String newPlayerName = NameColorUtils.getPlayerNameColor(playerName) + "";
         // The string in the end is there so it
