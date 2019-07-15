@@ -29,15 +29,25 @@ public class BowShootUtils
     public static String getEntityTypeMessage()
     {
         String msg = "Here's a list of available types of entities:\n";
+        for (String entityTypeName : BowShootUtils.getEntityTypeNames())
+        {
+            msg = msg + entityTypeName + "\n";
+        }
+        msg = msg + "(Open chat to view all)";
+        return msg;
+    }
+
+    public static List<String> getEntityTypeNames()
+    {
+        List<String> entityTypeNames = new ArrayList<String>();
         for (EntityType entityType : EntityType.values())
         {
             if (entityType.isSpawnable())
             {
-                msg = msg + entityType.name() + "\n";
+                entityTypeNames.add(entityType.name());
             }
         }
-        msg = msg + "(Open chat to view all)";
-        return msg;
+        return entityTypeNames;
     }
 
     public static String InvalidEntityError =

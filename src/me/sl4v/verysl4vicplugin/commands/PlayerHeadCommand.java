@@ -38,7 +38,6 @@ public class PlayerHeadCommand implements CommandExecutor
                     ItemStack playerSkull = PlayerHeadUtils.getPlayerHead(player);
                     player.getInventory().addItem(playerSkull);
                 }
-
             }
         }
         return true;

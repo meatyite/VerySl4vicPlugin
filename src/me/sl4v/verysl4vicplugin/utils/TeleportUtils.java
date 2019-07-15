@@ -1,6 +1,5 @@
 package me.sl4v.verysl4vicplugin.utils;
 
-
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

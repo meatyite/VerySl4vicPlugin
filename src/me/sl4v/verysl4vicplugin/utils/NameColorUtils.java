@@ -2,12 +2,26 @@ package me.sl4v.verysl4vicplugin.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class NameColorUtils
 {
     public static Map<String, ChatColor> name_colors = new HashMap<String, ChatColor>();
+
+    public static List<String> getColorNames()
+    {
+        List<String> colorNames = new ArrayList<String>();
+        for (ChatColor color : ChatColor.values())
+        {
+            colorNames.add(color.name());
+        }
+        return colorNames;
+    }
+
 
     public static String getChatColorNamesMessage()
     {

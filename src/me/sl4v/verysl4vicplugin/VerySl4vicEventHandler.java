@@ -20,12 +20,19 @@ public class VerySl4vicEventHandler implements Listener
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event)
     {
-        LightningStickUtils utils = new LightningStickUtils(event);
-
-        if (utils.isLightningStickEnabledForPlayer() && utils.isPlayerRightClickingBlock() && utils.isPlayerHoldingBlazingRod())
+        try
         {
-            utils.lightningStrikeBlock();
+            LightningStickUtils utils = new LightningStickUtils(event);
+
+            if (utils.isLightningStickEnabledForPlayer() && utils.isPlayerRightClickingBlock() && utils.isPlayerHoldingBlazingRod())
+            {
+                utils.lightningStrikeBlock();
+            }
+        } catch (Exception e)
+        {
+            assert true; // Do nothing
         }
+
     }
 
     // BowShoot event handler
