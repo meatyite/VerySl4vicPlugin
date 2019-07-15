@@ -1,5 +1,6 @@
 # VerySl4vicPlugin
 A Bunch of Minecraft Spigot plugins I developed put together. <br/>
+NOTE: This plugin is mainly for having fun with friends, not a plugin for serious servers.<br/>
 See [releases](https://github.com/sl4vkek/VerySl4vicPlugin/releases) for compiled JAR files. <br/>
 Requires [OpenJDK 8](https://adoptopenjdk.net/) to compile.
 ## Features
