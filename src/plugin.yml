@@ -1,5 +1,5 @@
 name: VerySl4vicPlugin
-version: 1.1.6
+version: 1.2
 author: sl4v
 description: Various plugins made by sl4v put together
 website: sl4vkek.github.io
@@ -26,4 +26,13 @@ commands:
     usage: /<command> [TREE TYPE]
   treetypes:
     description: List tree types for /treespawn
+    usage: /<command>
+  bowshoot:
+    description: Sets your bow's projectiles into a custom entity.
+    usage: /<command> [ENTITY TYPE]
+  entitylist:
+    description: Shows you a list of entities for /bowshoot
+    usage: /<command>
+  lightningStickEnable:
+    description: Enables or disables creating a lightning strike when you right click a block with a blazing rod
     usage: /<command>

@@ -19,6 +19,10 @@ public class VerySl4vicPlugin extends JavaPlugin
         SpawnTreeCommand treeSpawnCommands = new SpawnTreeCommand();
         getCommand("treespawn").setExecutor(treeSpawnCommands);
         getCommand("treetypes").setExecutor(treeSpawnCommands);
+        BowShootCommand bowShootCommands = new BowShootCommand();
+        getCommand("bowshoot").setExecutor(bowShootCommands);
+        getCommand("entitylist").setExecutor(bowShootCommands);
+        getCommand("lightningStickEnable").setExecutor(new LightningStrikeCommand());
     }
 
 }

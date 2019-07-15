@@ -1,23 +1,50 @@
 package me.sl4v.verysl4vicplugin;
 
-import me.sl4v.verysl4vicplugin.utils.LandMineUtils;
-import me.sl4v.verysl4vicplugin.utils.NameColorUtils;
-import me.sl4v.verysl4vicplugin.utils.PlayerHeadUtils;
+import me.sl4v.verysl4vicplugin.utils.*;
+
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.*;
 
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 
 
 public class VerySl4vicEventHandler implements Listener
 {
+    // LightningStick event handler
+    @EventHandler
+    public void onPlayerInteract(PlayerInteractEvent event)
+    {
+        LightningStickUtils utils = new LightningStickUtils(event);
+
+        if (utils.isLightningStickEnabledForPlayer() && utils.isPlayerRightClickingBlock() && utils.isPlayerHoldingBlazingRod())
+        {
+            utils.lightningStrikeBlock();
+        }
+    }
+
+    // BowShoot event handler
+    @EventHandler
+    public void onEntityBowShoot(EntityShootBowEvent event)
+    {
+
+        if (BowShootUtils.isEntityPlayer(event))
+        {
+            EntityType projectileType = BowShootUtils.getEntityTypeForPlayer(event.getEntity().getName());
+            if (projectileType == EntityType.ARROW)
+            {
+                return;
+            }
+            Entity entity = event.getEntity().getWorld().spawnEntity(event.getEntity().getLocation(), projectileType);
+            event.setProjectile(entity);
+        }
+    }
+
     // Beheading event handler
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event)
@@ -68,7 +95,10 @@ public class VerySl4vicEventHandler implements Listener
         Player player = event.getPlayer();
 
         String playerDisplayName = player.getDisplayName();
+
         NameColorUtils.name_colors.put(playerDisplayName, ChatColor.WHITE);
+        BowShootUtils.setEntityTypeForPlayer(playerDisplayName, EntityType.ARROW);
+        LightningStickUtils.setLightningStickEnabledForPlayer(playerDisplayName, false);
 
         String private_msg = ChatColor.YELLOW
                 + "Welcome to our server, "
