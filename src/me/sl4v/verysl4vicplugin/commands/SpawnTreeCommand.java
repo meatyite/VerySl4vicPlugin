@@ -16,6 +16,11 @@ public class SpawnTreeCommand implements CommandExecutor
         if (sender instanceof Player)
         {
             Player player = (Player) sender;
+            if (!player.isOp())
+            {
+                GeneralUtils.showErrorToPlayer(player, GeneralUtils.noOPError);
+                return true;
+            }
             if (command.getName().equals("treetypes"))
             {
                 player.sendMessage(SpawnTreeUtils.getTreeTypeMessage());

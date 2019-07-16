@@ -3,11 +3,16 @@ package me.sl4v.verysl4vicplugin.commands;
 import me.sl4v.verysl4vicplugin.utils.GeneralUtils;
 import me.sl4v.verysl4vicplugin.utils.NameColorUtils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Panda;
 import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
+import sun.java2d.loops.FillRect;
+
+import java.util.Arrays;
 
 
 public class NameColorCommand implements CommandExecutor
@@ -20,28 +25,31 @@ public class NameColorCommand implements CommandExecutor
             Player player = (Player) sender;
             if (command.getName().equals("namecolor"))
             {
+                if (!player.isOp())
+                {
+                    GeneralUtils.showErrorToPlayer(player, GeneralUtils.noOPError);
+                    return true;
+                }
                 ChatColor new_color = ChatColor.WHITE;
                 try
                 {
                     new_color = ChatColor.valueOf(args[0]);
-                    player.setPlayerListName(new_color + player.getDisplayName());
+                    if (args.length >= 1)
+                    {
+                        for (String playerName : Arrays.copyOfRange(args, 1, args.length))
+                        {
+                            player.setPlayerListName(new_color + Bukkit.getServer().getPlayer(playerName).getDisplayName());
+                            player.sendMessage(NameColorUtils.setPlayerNameColor(new_color, player.getDisplayName()));
+                        }
+                    }
                 }   catch (Exception e)
                 {
                     GeneralUtils.showErrorToPlayer(
                             player,
-                            "Must specify a valid color\n"
-                                    + ChatColor.WHITE
-                                    + "See /namecolorlist for a list of valid colors."
+                            "Invalid color or player name"
                     );
                     return false;
                 }
-
-                NameColorUtils.name_colors.put
-                        (
-                                player.getDisplayName(),
-                                new_color
-                        );
-                player.sendMessage("Changed your name's color to " + new_color + new_color.name());
 
                 /*
                 // Debug stuff
@@ -52,6 +60,11 @@ public class NameColorCommand implements CommandExecutor
                 */
             } else if (command.getName().equals("namecolorList"))
             {
+                if (!player.isOp())
+                {
+                    GeneralUtils.showErrorToPlayer(player, GeneralUtils.noOPError);
+                    return true;
+                }
                 player.sendMessage(NameColorUtils.getChatColorNamesMessage());
             }
         }

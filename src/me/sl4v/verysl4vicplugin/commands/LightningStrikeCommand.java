@@ -1,5 +1,6 @@
 package me.sl4v.verysl4vicplugin.commands;
 
+import me.sl4v.verysl4vicplugin.utils.GeneralUtils;
 import me.sl4v.verysl4vicplugin.utils.LightningStickUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,7 +15,12 @@ public class LightningStrikeCommand implements CommandExecutor
         if (sender instanceof Player)
         {
             Player player = (Player) sender;
-            if (command.getName().equals("lightningStickEnable"))
+            if (!player.isOp())
+            {
+                GeneralUtils.showErrorToPlayer(player, GeneralUtils.noOPError);
+                return true;
+            }
+            if (command.getName().equals("lightningStickEnableDisable"))
             {
                 LightningStickUtils.setLightningStickEnabledForPlayer(
                         player.getDisplayName(),

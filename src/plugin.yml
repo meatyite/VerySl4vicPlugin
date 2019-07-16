@@ -1,5 +1,5 @@
 name: VerySl4vicPlugin
-version: 1.2.5
+version: 1.3
 author: sl4v
 description: Various plugins made by sl4v put together
 website: sl4vkek.github.io
@@ -12,7 +12,7 @@ commands:
     aliases: [randomtp, RandomTP, RandTP, randomteleport]
   namecolor:
     description: Change your name's color
-    usage: /<command> [COLOR NAME] Example:\ /namecolor BLUE
+    usage: /<command> [COLOR NAME] [PLAYER NAME]
     aliases: [colorname, ColorName]
   namecolorList:
     description: List usuable name colors for /namecolor.
@@ -33,6 +33,6 @@ commands:
   entitylist:
     description: Shows you a list of entities for /bowshoot
     usage: /<command>
-  lightningStickEnable:
+  lightningStickEnableDisable:
     description: Enables or disables creating a lightning strike when you right click a block with a blazing rod
     usage: /<command>

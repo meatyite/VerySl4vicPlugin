@@ -66,6 +66,12 @@ public class NameColorUtils
         }
     }
 
+    public static String setPlayerNameColor(ChatColor nameColor, String playerName)
+    {
+        NameColorUtils.name_colors.put(playerName, nameColor);
+        return "Set " + playerName + "'s name color to " + nameColor + nameColor.name();
+    }
+
     public static String getPlayerNameWithColor(String playerName, boolean bold)
     {
         String newPlayerName = NameColorUtils.getPlayerNameColor(playerName) + "";

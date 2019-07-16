@@ -1,6 +1,7 @@
 package me.sl4v.verysl4vicplugin.utils;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.entity.EntityShootBowEvent;
 

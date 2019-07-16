@@ -27,7 +27,7 @@ public class VerySl4vicPlugin extends JavaPlugin
         getCommand("bowshoot").setExecutor(bowShootCommands);
         getCommand("bowshoot").setTabCompleter(tabCompleter);
         getCommand("entitylist").setExecutor(bowShootCommands);
-        getCommand("lightningStickEnable").setExecutor(new LightningStrikeCommand());
+        getCommand("lightningStickEnableDisable").setExecutor(new LightningStrikeCommand());
     }
 
 }

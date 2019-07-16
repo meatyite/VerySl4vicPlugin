@@ -6,12 +6,12 @@ import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.*;
 
 import org.bukkit.ChatColor;
+
 
 
 public class VerySl4vicEventHandler implements Listener
@@ -47,6 +47,7 @@ public class VerySl4vicEventHandler implements Listener
             {
                 return;
             }
+
             Entity entity = event.getEntity().getWorld().spawnEntity(event.getEntity().getLocation(), projectileType);
             event.setProjectile(entity);
         }
