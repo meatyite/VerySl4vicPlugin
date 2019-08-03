@@ -10,6 +10,7 @@ Features: <br/>
 - Landmines: Just dig a 2 block deep hole, put in tnt, hide it with a grass block (or any other block) and Boom! whoever walks on it is gonna blow up!
 - Playerhead command: Give your self your own playerhead, or even someone else's that's on the server!
 - TreeSpawn command: spawn all kinds of trees anywhere with a simple command!
+- BowShoot command: Set the projectile of your bow to an entity, any entity!
 ## Screenshots
 ![alt text](https://i.imgur.com/cS9FL0a.png)
 ![alt text](https://i.imgur.com/ghCnZLi.jpg)
